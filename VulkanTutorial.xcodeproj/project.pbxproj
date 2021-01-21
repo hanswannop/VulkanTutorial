@@ -8,23 +8,39 @@
 
 /* Begin PBXBuildFile section */
 		26ADF0E025BA1E370062CBAD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26ADF0DF25BA1E370062CBAD /* main.cpp */; };
+		26ADF0EB25BA213D0062CBAD /* libvulkan.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 26ADF0EA25BA213D0062CBAD /* libvulkan.1.dylib */; };
+		26ADF0ED25BA21450062CBAD /* libvulkan.1.2.162.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 26ADF0EC25BA21450062CBAD /* libvulkan.1.2.162.dylib */; };
+		26ADF0EF25BA38C20062CBAD /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 26ADF0EE25BA38C20062CBAD /* libglfw.3.3.dylib */; };
+		26ADF0F125BA39790062CBAD /* libglfw.3.3.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26ADF0F025BA39790062CBAD /* libglfw.3.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		26ADF0F325BA39910062CBAD /* libvulkan.1.2.162.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26ADF0F225BA39910062CBAD /* libvulkan.1.2.162.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		26ADF0F525BA39AB0062CBAD /* libvulkan.1.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26ADF0F425BA39AB0062CBAD /* libvulkan.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		26ADF0DA25BA1E370062CBAD /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
 			files = (
+				26ADF0F125BA39790062CBAD /* libglfw.3.3.dylib in CopyFiles */,
+				26ADF0F325BA39910062CBAD /* libvulkan.1.2.162.dylib in CopyFiles */,
+				26ADF0F525BA39AB0062CBAD /* libvulkan.1.dylib in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		26ADF0DC25BA1E370062CBAD /* VulkanTutorial */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VulkanTutorial; sourceTree = BUILT_PRODUCTS_DIR; };
 		26ADF0DF25BA1E370062CBAD /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		26ADF0EA25BA213D0062CBAD /* libvulkan.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.dylib; path = ../../../../../usr/local/lib/libvulkan.1.dylib; sourceTree = "<group>"; };
+		26ADF0EC25BA21450062CBAD /* libvulkan.1.2.162.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.2.162.dylib; path = ../../../../../usr/local/lib/libvulkan.1.2.162.dylib; sourceTree = "<group>"; };
+		26ADF0EE25BA38C20062CBAD /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../usr/local/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
+		26ADF0F025BA39790062CBAD /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../usr/local/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
+		26ADF0F225BA39910062CBAD /* libvulkan.1.2.162.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.2.162.dylib; path = ../../../../../usr/local/lib/libvulkan.1.2.162.dylib; sourceTree = "<group>"; };
+		26ADF0F425BA39AB0062CBAD /* libvulkan.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.dylib; path = ../../../../../usr/local/lib/libvulkan.1.dylib; sourceTree = "<group>"; };
+		26ADF0F625BA3CDB0062CBAD /* VulkanTutorial.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VulkanTutorial.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +48,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26ADF0EF25BA38C20062CBAD /* libglfw.3.3.dylib in Frameworks */,
+				26ADF0ED25BA21450062CBAD /* libvulkan.1.2.162.dylib in Frameworks */,
+				26ADF0EB25BA213D0062CBAD /* libvulkan.1.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,8 +60,12 @@
 		26ADF0D325BA1E370062CBAD = {
 			isa = PBXGroup;
 			children = (
+				26ADF0F425BA39AB0062CBAD /* libvulkan.1.dylib */,
+				26ADF0F225BA39910062CBAD /* libvulkan.1.2.162.dylib */,
+				26ADF0F025BA39790062CBAD /* libglfw.3.3.dylib */,
 				26ADF0DE25BA1E370062CBAD /* VulkanTutorial */,
 				26ADF0DD25BA1E370062CBAD /* Products */,
+				26ADF0E925BA213D0062CBAD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +80,20 @@
 		26ADF0DE25BA1E370062CBAD /* VulkanTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				26ADF0F625BA3CDB0062CBAD /* VulkanTutorial.entitlements */,
 				26ADF0DF25BA1E370062CBAD /* main.cpp */,
 			);
 			path = VulkanTutorial;
+			sourceTree = "<group>";
+		};
+		26ADF0E925BA213D0062CBAD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				26ADF0EE25BA38C20062CBAD /* libglfw.3.3.dylib */,
+				26ADF0EC25BA21450062CBAD /* libvulkan.1.2.162.dylib */,
+				26ADF0EA25BA213D0062CBAD /* libvulkan.1.dylib */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +210,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -229,6 +265,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -239,6 +277,7 @@
 		26ADF0E425BA1E370062CBAD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = VulkanTutorial/VulkanTutorial.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U6MNSVT5YJ;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -249,6 +288,7 @@
 		26ADF0E525BA1E370062CBAD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = VulkanTutorial/VulkanTutorial.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U6MNSVT5YJ;
 				ENABLE_HARDENED_RUNTIME = YES;
