@@ -16,28 +16,64 @@
 #include <glm/vec4.hpp>
 #include <glm/mat4x4.hpp>
 
+#include <vulkan/vulkan.h>
 #include <iostream>
+#include <stdexcept>
+#include <cstdlib>
 
-int main() {
-    glfwInit();
+const uint32_t WIDTH = 800;
+const uint32_t HEIGHT = 600;
+
+class CoucouTriangleApplication {
+public:
     
-    glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-    GLFWwindow* window = glfwCreateWindow(800, 600, "Coucou Vulkan", nullptr, nullptr);
-    uint32_t extensionCount = 0;
-    vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, nullptr);
-    
-    std::cout << extensionCount << " extensions supported\n";
-    
-    glm::mat4 matrix;
-    glm::vec4 vec;
-    auto test = matrix * vec;
-    
-    while(!glfwWindowShouldClose(window)) {
-        glfwPollEvents();
+    void run(){
+        initVulkan();
+        mainLoop();
+        cleanup();
     }
     
-    glfwDestroyWindow(window);
+private:
+    GLFWwindow* window;
     
-    glfwTerminate();
-    return 0;
+    void initVulkan(){
+        glfwInit();
+        
+        glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
+        glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+        
+        window = glfwCreateWindow(WIDTH, HEIGHT, "Coucou Vulkan", nullptr, nullptr);
+        
+        uint32_t extensionCount = 0;
+        vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, nullptr);
+        
+        std::cout << extensionCount << " extensions supported\n";
+    }
+    
+    void mainLoop(){
+        while(!glfwWindowShouldClose(window)) {
+            glfwPollEvents();
+            glm::mat4 matrix;
+            glm::vec4 vec;
+            glm::vec4 test = matrix * vec;
+        }
+    }
+    
+    void cleanup(){
+        glfwDestroyWindow(window);
+        glfwTerminate();
+    }
+};
+
+int main() {
+    CoucouTriangleApplication app;
+    
+    try {
+        app.run();
+    } catch (const std::exception& e) {
+        std::cerr << e.what() << std::endl;
+        return EXIT_FAILURE;
+    }
+    
+    return EXIT_SUCCESS;
 }
