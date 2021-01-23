@@ -20,6 +20,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <cstdlib>
+#include <vector>
 
 const uint32_t WIDTH = 800;
 const uint32_t HEIGHT = 600;
@@ -47,13 +48,12 @@ private:
         window = glfwCreateWindow(WIDTH, HEIGHT, "Coucou Vulkan", nullptr, nullptr);
     }
     
+    
+    
     void initVulkan(){
+        verifyExtensions();
         createInstance();
         
-        uint32_t extensionCount = 0;
-        vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, nullptr);
-        
-        std::cout << extensionCount << " extensions supported\n";
     }
     
     void mainLoop(){
@@ -94,7 +94,40 @@ private:
         if(vkCreateInstance(&createInfo, nullptr, &instance) != VK_SUCCESS){
             throw std::runtime_error("Failed to create instance!");
         }
+    }
+    
+    void verifyExtensions() {
+        uint32_t requiredExtensionCount = 0;
+        auto requiredExtensions = glfwGetRequiredInstanceExtensions(&requiredExtensionCount);
+        std::cout << "Required extensions:\n";
+        for(int i = 0; i < requiredExtensionCount; ++i) {
+            std::cout << '\t' << requiredExtensions[i] << '\n';
+        }
         
+        uint32_t availableExtensionCount = 0;
+        vkEnumerateInstanceExtensionProperties(nullptr, &availableExtensionCount, nullptr);
+        
+        std::vector<VkExtensionProperties> extensions(availableExtensionCount);
+        vkEnumerateInstanceExtensionProperties(nullptr, &availableExtensionCount, extensions.data());
+        
+        std::cout << "Available extensions:\n";
+        for(const auto& extension : extensions) {
+            std::cout << '\t' << extension.extensionName << '\n';
+        }
+        
+        for(int i = 0; i < requiredExtensionCount; ++i) {
+            bool found = false;
+            for(const auto& extension : extensions) {
+                if(strcmp(requiredExtensions[i], extension.extensionName))
+                {
+                    found = true;
+                }
+            }
+            if(!found){
+                throw std::runtime_error("Missing required vulkan extension");
+            }
+        }
+        std::cout << "All required extensions present" << std::endl;
     }
 };
 
